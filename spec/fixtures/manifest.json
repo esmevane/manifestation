@@ -1,0 +1,7 @@
+{
+  "base_path":  "source",
+  "template":   "template.html",
+  "engine":     "markdown",
+  "output":     "index.html",
+  "contents":   [ "header.md", "body.md", "footer.md" ]
+}

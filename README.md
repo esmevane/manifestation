@@ -1,6 +1,6 @@
 # Manifestation
 
-TODO: Write a gem description
+Right now it's just Bundler boilerplate.
 
 ## Installation
 
