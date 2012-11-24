@@ -22,7 +22,15 @@ describe Manifestation do
     manifest.content_files.must_be_instance_of Array
   end
 
-  it "composes one file" do
+  it "composes the output" do
     manifest.compose.must_be_instance_of String
+  end
+
+  it "knows the output name" do
+    manifest.output.must_be_instance_of String
+  end
+
+  it "builds an output file" do
+    manifest.build.must_be_instance_of File
   end
 end

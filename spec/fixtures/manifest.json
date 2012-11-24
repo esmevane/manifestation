@@ -1,4 +1,5 @@
 {
   "base_path":  "source",
+  "output":     "readme.md",
   "contents":   [ "header.md", "body.md", "footer.md" ]
 }
