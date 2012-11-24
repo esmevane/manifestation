@@ -1,58 +1,21 @@
-require 'json'
-require "manifestation/version"
+[ 'version', 'generate', 'parse' ].each do |lib|
+  require "manifestation/#{lib}"
+end
 
 class Manifestation
-  attr_accessor :source
-
   def initialize file
-    @file   = file
-    @source = parse @file
+    @generator = Generate.new file
+  end
+
+  def source
+    @generator.source
   end
 
   def compose
-    contents.join "\n"
+    @generator.compose
   end
 
   def build
-    output_file = new_output_file
-    output_file.write compose
-    output_file.close
-    output_file
-  end
-
-  private
-
-  def base_path
-    @base_path ||= File.expand_path "..", @file
-  end
-
-  def content_path
-    @content_path ||= File.join base_path, source['base_path']
-  end
-
-  def content_files
-    @content_files ||= Array @source['contents']
-  end
-
-  def contents
-    @contents ||= content_files.map do |filename|
-      File.read File.join(content_path, filename)
-    end
-  end
-
-  def output
-    @output ||= output_file_path
-  end
-
-  def output_file_path
-    File.join base_path, source['output']
-  end
-
-  def new_output_file
-    File.new output, "w+"
-  end
-
-  def parse file = @file
-    JSON.parse File.read file
+    @generator.build
   end
 end

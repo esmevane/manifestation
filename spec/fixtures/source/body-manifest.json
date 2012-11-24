@@ -1,0 +1,5 @@
+{
+  "base_path":  "body",
+  "output":     "body.md",
+  "contents":   [ "snippet.md" ]
+}
