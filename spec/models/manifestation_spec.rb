@@ -11,14 +11,14 @@ describe Manifestation do
   end
 
   it "composes the correct string" do
-    manifest.compose.must_match '# Header'
+    manifest.compose.must_match '## Header'
   end
 
   it "loads files with full paths" do
     manifest.source.wont_be_nil
   end
 
-  it "parses json" do
+  it "builds the source information with a json hash" do
     manifest.source.must_be_instance_of Hash
   end
 
@@ -26,8 +26,11 @@ describe Manifestation do
     nested_manifest.compose.must_match "A ruby code snippet"
   end
 
+  it "uses a master template" do
+    manifest.compose.must_match '# Manifestation'
+  end
+
   # TODO: Tests to write:
   # it "wraps specified manifest files in templates"
-  # it "takes a master template"
 
 end

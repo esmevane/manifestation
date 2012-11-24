@@ -1,5 +1,6 @@
 {
   "base_path":  "source",
+  "template":   "template.md.erb",
   "output":     "readme.md",
   "contents":   [ "header.md", "body-manifest.json", "footer.md" ]
 }

@@ -1,3 +1,5 @@
+require 'erb'
+
 class Manifestation
   class Generate
     attr_accessor :source
@@ -8,7 +10,9 @@ class Manifestation
     end
 
     def compose
-      contents.join "\n"
+      render_template do
+        contents.join "\n"
+      end
     end
 
     def build
@@ -19,6 +23,22 @@ class Manifestation
     end
 
     private
+
+    def render_template
+      ERB.new(template).result(binding)
+    end
+
+    def template
+      @template ||= File.read(template_path) rescue blank_template
+    end
+
+    def blank_template
+      "<%= yield %>"
+    end
+
+    def template_path
+      @template_path ||= File.join content_path, source['template']
+    end
 
     def base_path
       @base_path ||= File.expand_path "..", @file
