@@ -30,7 +30,4 @@ describe Manifestation do
     manifest.compose.must_match '# Manifestation'
   end
 
-  # TODO: Tests to write:
-  # it "wraps specified manifest files in templates"
-
 end
