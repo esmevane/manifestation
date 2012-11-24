@@ -4,7 +4,7 @@ class Manifestation
 
     def initialize file
       @file   = file
-      @source = parse @file
+      @source = build_source @file
     end
 
     def compose
@@ -34,8 +34,7 @@ class Manifestation
 
     def contents
       @contents ||= content_files.map do |filename|
-        file = File.join(content_path, filename)
-        Parse.new(file).compose
+        parse File.join(content_path, filename)
       end
     end
 
@@ -51,7 +50,11 @@ class Manifestation
       File.new output, "w+"
     end
 
-    def parse file = @file
+    def parse file
+      Parse.new(file).compose
+    end
+
+    def build_source file = @file
       JSON.parse File.read file
     end
 
