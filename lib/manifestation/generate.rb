@@ -10,9 +10,7 @@ class Manifestation
     end
 
     def compose
-      render_template do
-        contents.join "\n\n"
-      end
+      template joined_contents
     end
 
     def build
@@ -24,20 +22,16 @@ class Manifestation
 
     private
 
-    def render_template
-      ERB.new(template).result(binding)
+    def joined_contents
+      contents.join "\n\n"
     end
 
-    def template
-      @template ||= File.read(template_path) rescue blank_template
-    end
-
-    def blank_template
-      "<%= yield %>"
+    def template body
+      Template.new(template_path, body).compose
     end
 
     def template_path
-      @template_path ||= File.join content_path, source['template']
+      @template_path ||= File.join content_path, String(source['template'])
     end
 
     def base_path

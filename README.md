@@ -27,3 +27,8 @@ TODO: Write usage instructions here
 3. Commit your changes (`git commit -am 'Added some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+## Todos
+
+* Extract Content logic into Manifestation::Content class
+* Extract Building logic into Manifestation::Build class
