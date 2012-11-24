@@ -4,4 +4,4 @@
 
 It has some text in it.
 
-### Footer information lol
+### Footer information

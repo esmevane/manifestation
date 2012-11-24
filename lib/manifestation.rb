@@ -3,10 +3,24 @@ require "manifestation/version"
 
 class Manifestation
   attr_accessor :source
+
   def initialize file
     @file   = file
     @source = parse @file
   end
+
+  def compose
+    contents.join "\n"
+  end
+
+  def build
+    output_file = new_output_file
+    output_file.write compose
+    output_file.close
+    output_file
+  end
+
+  private
 
   def base_path
     @base_path ||= File.expand_path "..", @file
@@ -26,22 +40,9 @@ class Manifestation
     end
   end
 
-  def compose
-    contents.join "\n"
-  end
-
   def output
     @output ||= output_file_path
   end
-
-  def build
-    output_file = new_output_file
-    output_file.write compose
-    output_file.close
-    output_file
-  end
-
-  private
 
   def output_file_path
     File.join base_path, source['output']

@@ -1,1 +1,1 @@
-### Footer information lol
+### Footer information
