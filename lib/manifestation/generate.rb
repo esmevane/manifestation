@@ -11,7 +11,7 @@ class Manifestation
 
     def compose
       render_template do
-        contents.join "\n"
+        contents.join "\n\n"
       end
     end
 
