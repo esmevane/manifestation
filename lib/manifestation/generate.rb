@@ -13,11 +13,8 @@ class Manifestation
       template joined_contents
     end
 
-    def build
-      output_file = new_output_file
-      output_file.write compose
-      output_file.close
-      output_file
+    def base_path
+      @base_path ||= File.expand_path "..", @file
     end
 
     private
@@ -34,34 +31,18 @@ class Manifestation
       @template_path ||= File.join content_path, String(source['template'])
     end
 
-    def base_path
-      @base_path ||= File.expand_path "..", @file
-    end
-
     def content_path
       @content_path ||= File.join base_path, source['base_path']
     end
 
     def content_files
-      @content_files ||= Array @source['contents']
+      @content_files ||= Array source['contents']
     end
 
     def contents
       @contents ||= content_files.map do |filename|
         parse File.join(content_path, filename)
       end
-    end
-
-    def output
-      @output ||= output_file_path
-    end
-
-    def output_file_path
-      File.join base_path, source['output']
-    end
-
-    def new_output_file
-      File.new output, "w+"
     end
 
     def parse file

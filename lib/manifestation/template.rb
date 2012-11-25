@@ -1,5 +1,6 @@
 class Manifestation
   class Template
+    
     def initialize template_path, body
       @template_path = template_path
       @body          = body

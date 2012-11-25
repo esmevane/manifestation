@@ -1,4 +1,4 @@
-[ 'version', 'generate', 'parse', 'template' ].each do |lib|
+[ 'version', 'build', 'generate', 'parse', 'template' ].each do |lib|
   require "manifestation/#{lib}"
 end
 
@@ -16,6 +16,6 @@ class Manifestation
   end
 
   def build
-    @generator.build
+    Build.new(@generator).compose
   end
 end
