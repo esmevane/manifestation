@@ -2,6 +2,7 @@ require 'erb'
 
 class Manifestation
   class Generate
+    
     attr_accessor :source
 
     def initialize file

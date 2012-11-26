@@ -1,4 +1,4 @@
-[ 'version', 'content', 'build', 'generate', 'parse', 'template' ].each do |lib|
+%w(version content build generate parse template).each do |lib|
   require "manifestation/#{lib}"
 end
 

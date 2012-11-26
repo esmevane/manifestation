@@ -2,6 +2,7 @@ require 'json'
 
 class Manifestation
   class Parse
+
     def initialize file
       @file = file
     end
@@ -17,5 +18,6 @@ class Manifestation
         File.read @file
       end
     end
+
   end
 end
