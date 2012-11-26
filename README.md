@@ -1,6 +1,6 @@
 # Manifestation
 
-Right now it's just Bundler boilerplate.
+A simple tool to neatly collate files into one output, guided by manifests.
 
 ## Installation
 
@@ -42,6 +42,18 @@ manifest.compose
 manifest.build
 ```
 
+### Some nice things about Manifestation
+
+* It can nest manifests
+* Manifests can have templates
+* Manifests can be named anything ending with "manifest.json"
+* You can point manifests at other directories
+* It uses only Ruby standard library features
+
+### Some not-so-nice things about Manifestation
+
+* Only built and tested on 1.9.3 and is almost guaranteed not to work on previous versions
+
 ## Contributing
 
 1. Fork it
@@ -63,3 +75,7 @@ manifest.build
 * Document code
 * Unit test each class in isolation
 * Unit test central script executable
+
+## One day
+
+* Handle different manifest types - YAML, for instance
