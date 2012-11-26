@@ -5,12 +5,20 @@ class Manifestation
       @generator = generator
     end
 
+    def compose
+      render_template do
+        Content.new(@generator).compose
+      end
+    end
+
+    private
+
     def source
       @generator.source
     end
 
-    def template_path
-      @template_path ||= File.join @generator.base_path, source['base_path'],
+    def path
+      @path ||= File.join @generator.base_path, source['base_path'],
         String(source['template'])
     end
 
@@ -19,17 +27,11 @@ class Manifestation
     end
 
     def template
-      @template ||= File.read(template_path) rescue blank_template
+      @template ||= File.read(path) rescue blank_template
     end
 
     def blank_template
       "<%= yield %>"
-    end
-
-    def compose
-      render_template do
-        @generator.joined_contents
-      end
     end
 
   end

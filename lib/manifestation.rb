@@ -1,4 +1,4 @@
-[ 'version', 'build', 'generate', 'parse', 'template' ].each do |lib|
+[ 'version', 'content', 'build', 'generate', 'parse', 'template' ].each do |lib|
   require "manifestation/#{lib}"
 end
 

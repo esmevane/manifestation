@@ -30,5 +30,5 @@ TODO: Write usage instructions here
 
 ## Todos
 
-* Extract Content logic into Manifestation::Content class
-* Extract Building logic into Manifestation::Build class
+* Move most generator content back into base manifestation class
+* Make a simple delegator to stand in for base_path and source methods

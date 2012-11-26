@@ -6,26 +6,24 @@ class Manifestation
     end
 
     def compose
-      output_file = new_output_file
+      output_file = new_output
       output_file.write @generator.compose
       output_file.close
       output_file
     end
 
+    private
+
     def source
       @generator.source
     end
 
-    def new_output_file
+    def new_output
       File.new output, "w+"
     end
 
     def output
-      @output ||= output_file_path
-    end
-
-    def output_file_path
-      File.join @generator.base_path, source['output']
+      @output ||= File.join @generator.base_path, source['output']
     end
 
   end
