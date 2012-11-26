@@ -8,7 +8,7 @@ class Manifestation
 
     def compose
       render_template do
-        Content.new(@generator).compose
+        Content.new(self).compose
       end
     end
 
