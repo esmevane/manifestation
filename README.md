@@ -28,9 +28,15 @@ TODO: Write usage instructions here
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
 
-## Todos
+## Todos before first stable
 
 * Move most generator content back into base manifestation class
-* Create 'manifest' binary command to go with gem
+* Create 'manifest' executable script to go with gem
 * Unite root_path invocation in generator class
 * Attempt to decouple generator and place that responsibility in base class
+
+## Todos after first stable, before release
+
+* Document code
+* Unit test each class in isolation
+* Unit test central script executable
