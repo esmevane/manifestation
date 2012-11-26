@@ -19,7 +19,7 @@ describe Manifestation do
   end
 
   it "builds the source information with a json hash" do
-    manifest.source.must_be_instance_of Hash
+    manifest.source.must_be_instance_of Manifestation::Source
   end
 
   it "recursively builds nested manifests" do

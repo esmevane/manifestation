@@ -15,11 +15,11 @@ class Manifestation
     private
 
     def path
-      @path ||= File.join base_path, source['base_path'], template_name
+      @path ||= File.join base_path, source.base_path, template_name
     end
 
     def template_name
-      String source['template']
+      String source.template
     end
 
     def render_template

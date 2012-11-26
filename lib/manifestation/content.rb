@@ -13,11 +13,11 @@ class Manifestation
     private
 
     def path
-      @path ||= File.join base_path, source['base_path']
+      @path ||= File.join base_path, source.base_path
     end
 
     def files
-      @files ||= Array source['contents']
+      @files ||= Array source.contents
     end
 
     def parsed_files

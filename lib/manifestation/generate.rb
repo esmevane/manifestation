@@ -19,7 +19,7 @@ class Manifestation
     private
 
     def read_source file = @file
-      JSON.parse File.read file
+      Source.new file
     end
 
   end
