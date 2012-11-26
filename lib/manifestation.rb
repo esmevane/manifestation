@@ -1,8 +1,12 @@
+require 'erb'
+require 'json'
+
 %w(version content build generate parse template).each do |lib|
   require "manifestation/#{lib}"
 end
 
 class Manifestation
+
   def initialize file
     @generator = Generate.new file
   end
@@ -18,4 +22,5 @@ class Manifestation
   def build
     Build.new(@generator).compose
   end
+
 end

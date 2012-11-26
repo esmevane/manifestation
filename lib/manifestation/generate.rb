@@ -1,5 +1,3 @@
-require 'erb'
-
 class Manifestation
   class Generate
     
