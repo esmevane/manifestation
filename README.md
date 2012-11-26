@@ -32,3 +32,4 @@ TODO: Write usage instructions here
 
 * Move most generator content back into base manifestation class
 * Make a simple delegator to stand in for base_path and source methods
+* Create 'manifest' binary command to go with gem
