@@ -5,7 +5,7 @@ class Manifestation
 
     def initialize file
       @file   = file
-      @source = read_source @file
+      @source = build_source @file
     end
 
     def compose
@@ -18,7 +18,7 @@ class Manifestation
 
     private
 
-    def read_source file = @file
+    def build_source file = @file
       Source.new file
     end
 
