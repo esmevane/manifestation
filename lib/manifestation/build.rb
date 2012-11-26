@@ -1,8 +1,9 @@
 class Manifestation
-  class Build
+  class Build < SimpleDelegator
 
     def initialize generator
       @generator = generator
+      super
     end
 
     def compose
@@ -14,16 +15,12 @@ class Manifestation
 
     private
 
-    def source
-      @generator.source
-    end
-
     def new_output
       File.new output, "w+"
     end
 
     def output
-      @output ||= File.join @generator.base_path, source['output']
+      @output ||= File.join base_path, source['output']
     end
 
   end

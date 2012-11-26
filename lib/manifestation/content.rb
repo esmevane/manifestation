@@ -1,8 +1,9 @@
 class Manifestation
-  class Content
+  class Content < SimpleDelegator
 
     def initialize generator
       @generator = generator
+      super
     end
 
     def compose
@@ -12,7 +13,7 @@ class Manifestation
     private
 
     def path
-      @path ||= File.join @generator.base_path, source['base_path']
+      @path ||= File.join base_path, source['base_path']
     end
 
     def files
@@ -23,10 +24,6 @@ class Manifestation
       @parsed_files ||= files.map do |filename|
         parse File.join(path, filename)
       end
-    end
-
-    def source
-      @generator.source
     end
 
     def parse file

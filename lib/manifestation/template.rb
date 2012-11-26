@@ -1,8 +1,9 @@
 class Manifestation
-  class Template
+  class Template < SimpleDelegator
 
     def initialize generator
       @generator = generator
+      super
     end
 
     def compose
@@ -13,13 +14,12 @@ class Manifestation
 
     private
 
-    def source
-      @generator.source
+    def path
+      @path ||= File.join base_path, source['base_path'], template_name
     end
 
-    def path
-      @path ||= File.join @generator.base_path, source['base_path'],
-        String(source['template'])
+    def template_name
+      String source['template']
     end
 
     def render_template
