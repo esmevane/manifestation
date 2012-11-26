@@ -1,9 +1,17 @@
 class Manifestation
   class Template
-    
-    def initialize template_path, body
-      @template_path = template_path
-      @body          = body
+
+    def initialize generator
+      @generator = generator
+    end
+
+    def source
+      @generator.source
+    end
+
+    def template_path
+      @template_path ||= File.join @generator.base_path, source['base_path'],
+        String(source['template'])
     end
 
     def render_template
@@ -11,7 +19,7 @@ class Manifestation
     end
 
     def template
-      @template ||= File.read(@template_path) rescue blank_template
+      @template ||= File.read(template_path) rescue blank_template
     end
 
     def blank_template
@@ -20,7 +28,7 @@ class Manifestation
 
     def compose
       render_template do
-        @body
+        @generator.joined_contents
       end
     end
 

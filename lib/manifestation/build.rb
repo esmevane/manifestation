@@ -17,7 +17,6 @@ class Manifestation
     end
 
     def new_output_file
-      puts output
       File.new output, "w+"
     end
 

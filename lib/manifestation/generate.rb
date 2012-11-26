@@ -10,29 +10,25 @@ class Manifestation
     end
 
     def compose
-      template joined_contents
+      templated_content
     end
 
     def base_path
       @base_path ||= File.expand_path "..", @file
     end
 
-    private
-
     def joined_contents
       contents.join "\n\n"
     end
 
-    def template body
-      Template.new(template_path, body).compose
-    end
-
-    def template_path
-      @template_path ||= File.join content_path, String(source['template'])
-    end
+    private
 
     def content_path
       @content_path ||= File.join base_path, source['base_path']
+    end
+
+    def templated_content
+      Template.new(self).compose
     end
 
     def content_files
