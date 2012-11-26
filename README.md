@@ -16,9 +16,31 @@ Or install it yourself as:
 
     $ gem install manifestation
 
-## Usage
+## Usage (Ruby)
 
-TODO: Write usage instructions here
+Make a file ending in "manifest.json", containing a JSON hash which looks like this:
+
+```json
+{
+  "output":   "readme.md",
+  "contents": [ "header.md", "body.md", "footer.md" ]
+}
+```
+
+Then in console:
+
+```ruby
+
+require 'manifestation'
+
+manifest = Manifestation.new "/path/to/manifest.json"
+
+# This will return a string 
+manifest.compose
+
+# This will build a readme.md, overwriting any previous versions of the file
+manifest.build
+```
 
 ## Contributing
 
@@ -34,6 +56,7 @@ TODO: Write usage instructions here
 * Create 'manifest' executable script to go with gem
 * Unite root_path invocation in generator class
 * Attempt to decouple generator and place that responsibility in base class
+* Gracefully fail to build on no output file?  Or default file?
 
 ## Todos after first stable, before release
 
