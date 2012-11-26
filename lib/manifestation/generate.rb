@@ -10,7 +10,7 @@ class Manifestation
     end
 
     def compose
-      templated_content
+      Template.new(self).compose
     end
 
     def base_path
@@ -25,10 +25,6 @@ class Manifestation
 
     def content_path
       @content_path ||= File.join base_path, source['base_path']
-    end
-
-    def templated_content
-      Template.new(self).compose
     end
 
     def content_files
