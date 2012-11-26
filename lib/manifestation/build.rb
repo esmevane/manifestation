@@ -20,7 +20,7 @@ class Manifestation
     end
 
     def output
-      @output ||= File.join root_path, source.output
+      File.join root_path, source.output
     end
 
   end

@@ -15,7 +15,7 @@ class Manifestation
     private
 
     def path
-      @path ||= File.join root_path, source.base_path, template_name
+      File.join root_path, source.base_path, template_name
     end
 
     def template_name
@@ -27,7 +27,7 @@ class Manifestation
     end
 
     def template
-      @template ||= File.read(path) rescue blank_template
+      File.read(path) rescue blank_template
     end
 
     def blank_template

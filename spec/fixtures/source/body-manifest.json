@@ -1,4 +1,5 @@
 {
   "base_path":  "body",
+  "template":   "body-template.md.erb",
   "contents":   [ "snippet.md" ]
 }

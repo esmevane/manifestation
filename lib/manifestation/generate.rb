@@ -13,7 +13,7 @@ class Manifestation
     end
 
     def root_path
-      @base_path ||= File.expand_path "..", @file
+      File.expand_path "..", @file
     end
 
     private
