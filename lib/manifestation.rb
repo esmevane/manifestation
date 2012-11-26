@@ -3,7 +3,7 @@ require 'erb'
 require 'json'
 require 'ostruct'
 
-%w(version build content generate parse source template).each do |lib|
+%w(build content generate parse source template version).each do |lib|
   require "manifestation/#{lib}"
 end
 

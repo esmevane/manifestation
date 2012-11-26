@@ -13,7 +13,7 @@ class Manifestation
     private
 
     def path
-      @path ||= File.join base_path, source.base_path
+      @path ||= File.join root_path, source.base_path
     end
 
     def files

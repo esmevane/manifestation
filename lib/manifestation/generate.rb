@@ -12,7 +12,7 @@ class Manifestation
       Template.new(self).compose
     end
 
-    def base_path
+    def root_path
       @base_path ||= File.expand_path "..", @file
     end
 
