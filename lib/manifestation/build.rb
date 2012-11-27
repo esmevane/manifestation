@@ -1,14 +1,9 @@
 class Manifestation
   class Build < SimpleDelegator
 
-    def initialize generator
-      @generator = generator
-      super
-    end
-
     def compose
       output_file = new_output
-      output_file.write @generator.compose
+      output_file.write __getobj__.compose
       output_file.close
       output_file
     end

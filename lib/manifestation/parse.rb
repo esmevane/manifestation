@@ -11,7 +11,7 @@ class Manifestation
 
     def compose
       if is_manifest?
-        Generate.new(@file).compose
+        Manifestation.new(@file).compose
       else
         File.read @file
       end

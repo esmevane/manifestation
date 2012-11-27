@@ -1,11 +1,6 @@
 class Manifestation
   class Content < SimpleDelegator
 
-    def initialize generator
-      @generator = generator
-      super
-    end
-
     def compose
       parsed_files.join "\n\n"
     end

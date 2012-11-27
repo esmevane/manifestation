@@ -1,11 +1,6 @@
 class Manifestation
   class Template < SimpleDelegator
 
-    def initialize generator
-      @generator = generator
-      super
-    end
-
     def compose
       render_template do
         Content.new(self).compose

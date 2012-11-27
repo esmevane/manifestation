@@ -9,14 +9,6 @@ class Manifestation
     # if the file is invalid JSON.  Those exceptions are considered ideal.
     #
     # file - Absolute path to a JSON file.
-    #
-    # Examples
-    #   Manifestation::Source.new "/path/to/file.json"
-    #   # => #<Manifestation::Source base_path="source",
-    #        template="template.md.erb", output="readme.md",
-    #        contents=["header.md", "body.md", "footer.md"]>
-    # 
-    # Returns a Manifestation::Source (OpenStruct) instance.
     def initialize file
       super JSON.parse File.read file
     end
