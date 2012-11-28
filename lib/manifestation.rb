@@ -4,7 +4,7 @@ require 'json'
 require 'ostruct'
 
 %w(build content parse source template version).each do |lib|
-  require File.join File.expand_path("./lib"), "manifestation/#{lib}"
+  require File.join File.dirname(__FILE__), "manifestation/#{lib}"
 end
 
 class Manifestation
